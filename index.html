@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LeafBros – Gartenservice</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f5f1;
+            color: #202820;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            background: #17291e;
+        }
+
+        .logo {
+            color: white;
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            color: #e4e9e3;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #a8c69d;
+        }
+
+        /* START */
+
+        .hero {
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            padding: 80px 10%;
+            background:
+                linear-gradient(120deg, #172b1e, #304c35);
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 720px;
+        }
+
+        .small-title {
+            color: #b2cba7;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 13px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            line-height: 1.15;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #d4ddd3;
+            line-height: 1.7;
+            max-width: 600px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 28px;
+            border-radius: 5px;
+            background: #a8c69d;
+            color: #17291e;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #c4d9bb;
+        }
+
+        /* ALLGEMEINE SEITENABSCHNITTE */
+
+        .section {
+            padding: 85px 10%;
+        }
+
+        .section-label {
+            color: #688365;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section h2 {
+            font-size: 38px;
+            color: #203625;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            max-width: 650px;
+            color: #626a62;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        /* LEISTUNGEN */
+
+        .services {
+            background: #f4f5f1;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 32px;
+            border: 1px solid #e1e5de;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.05);
+        }
+
+        .service-card h3 {
+            font-size: 21px;
+            color: #29432e;
+            margin-bottom: 14px;
+        }
+
+        .service-card p {
+            color: #687168;
+            line-height: 1.7;
+        }
+
+        /* PREISE */
+
+        .pricing {
+            background: #e8ede5;
+        }
+
+        .price-box {
+            background: white;
+            max-width: 700px;
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid #dce4d8;
+        }
+
+        .price-box h3 {
+            font-size: 25px;
+            color: #243b29;
+            margin-bottom: 18px;
+        }
+
+        .price-box p {
+            color: #626a62;
+            line-height: 1.8;
+        }
+
+        .price-highlight {
+            margin-top: 22px;
+            font-size: 23px;
+            font-weight: bold;
+            color: #55764f;
+        }
+
+        /* ÜBER UNS */
+
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 750px;
+        }
+
+        .about p {
+            font-size: 17px;
+            line-height: 1.9;
+            color: #626a62;
+        }
+
+        /* KONTAKT */
+
+        .contact {
+            background: #17291e;
+            text-align: center;
+            color: white;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact p {
+            color: #d1d9d1;
+            line-height: 1.8;
+        }
+
+        .contact .section-label {
+            color: #a8c69d;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #101d14;
+            color: #9eaa9e;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+
+        /* HANDY-ANSICHT */
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .hero {
+                min-height: 460px;
+                padding: 65px 8%;
+            }
+
+            .hero h1 {
+                font-size: 39px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section {
+                padding: 65px 8%;
+            }
+
+            .section h2 {
+                font-size: 30px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                padding: 26px;
+            }
+
+            .price-box {
+                padding: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header>
+        <div class="logo">Hanse Gartenservice</div>
+
+        <nav>
+            <a href="#start">Start</a>
+            <a href="#leistungen">Leistungen</a>
+            <a href="#preise">Preise</a>
+            <a href="#ueberuns">Über uns</a>
+            <a href="#kontakt">Kontakt</a>
+        </nav>
+    </header>
+
+    <!-- STARTSEITE -->
+
+    <section class="hero" id="start">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                Gartenservice & Unterstützung
+            </div>
+
+            <h1>Ihr Garten.<br>Unser Einsatz.</h1>
+
+            <p>
+                Wir helfen 
+                ihnen dabei, ihren Garten sauber und gepflegt zu halten.
+                Ob Gartenarbeiten oder Unterstützung rund ums Grundstück –
+                wir packen mit an.
+            </p>
+
+            <a href="#kontakt" class="button">
+                Kontakt aufnehmen
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- LEISTUNGEN -->
+
+    <section class="section services" id="leistungen">
+
+        <div class="section-label">Was wir machen</div>
+
+        <h2>Unsere Leistungen</h2>
+
+        <p class="description">
+            Wir unterstützen sie bei verschiedenen Aufgaben im Garten
+            und sorgen für Ordnung und Sauberkeit.
+        </p>
+
+        <div class="service-grid">
+
+            <div class="service-card">
+                <h3>Laub entfernen</h3>
+                <p>
+                    Wir entfernen Laub von geeigneten Flächen
+                    und helfen dabei, Ihren Garten sauber zu halten.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>Gartenpflege</h3>
+                <p>
+                    Wir unterstützen sie bei Gartenarbeiten
+                    und bei der Pflege ihrer Außenbereiche.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>Wege fegen</h3>
+                <p>
+                    Wir fegen Wege, Einfahrten und andere Außenflächen
+                    und beseitigen Verschmutzungen.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>Blumen gießen</h3>
+                <p>
+                    Wir kümmern uns um das Gießen ihrer Blumen
+                    und Pflanzen nach Absprache.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PREISE -->
+
+    <section class="section pricing" id="preise">
+
+        <div class="section-label">Fair & transparent</div>
+
+        <h2>Unsere Preise</h2>
+
+        <div class="price-box">
+
+            <h3>Preise nach Absprache</h3>
+
+            <p>
+                Jede Aufgabe ist unterschiedlich.
+                Die Kosten richten sich nach der jeweiligen Arbeit,
+                dem Umfang und dem Zeitaufwand.
+                Vor Beginn vereinbaren wir gemeinsam einen Preis,
+                damit alles transparent und nachvollziehbar ist.
+            </p>
+
+            <div class="price-highlight">
+                Preis nach Absprache
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ÜBER UNS -->
+
+    <section class="section about" id="ueberuns">
+
+        <div class="about-content">
+
+            <div class="section-label">Wer wir sind</div>
+
+            <h2>Über uns</h2>
+
+            <p>
+                Wir sind ein kleines Team und helfen gerne bei
+                Gartenarbeiten. Unser Ziel ist es, Menschen im Alltag zu
+                unterstützen und für gepflegte Außenbereiche zu sorgen.
+                Wir legen Wert auf freundliche Kommunikation, ordentliches
+                Arbeiten und zuverlässige Unterstützung.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- KONTAKT -->
+
+    <section class="section contact" id="kontakt">
+
+        <div class="section-label">Kontakt</div>
+
+        <h2>Kontakt</h2>
+
+        <p>
+            Du benötigst Hilfe bei deinen Gartenarbeiten?
+            Schreib uns gerne eine E-Mail.
+        </p>
+
+        <a href="mailto:leafbros@example.com" class="button">
+            Hanse.Gartenservice21@outlook.de
+        </a> 
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <p>© 2026 LeafBros – Gartenservice</p>
+    </footer>
+
+</body>
+</html>
